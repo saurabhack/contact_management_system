@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Management System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+  <!-- Navbar -->
+  <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-white text-2xl font-bold">Contact Management</a>
+      <% if (locals.user) { %>
+        <div>
+          <a href="#" class="text-white mr-4 hover:text-gray-300 transition">Home</a>
+          <a href="#" class="text-white mr-4 hover:text-gray-300 transition">Add Contact</a>
+          <a href="#" class="text-white mr-4 hover:text-gray-300 transition">View Contacts</a>
+          <a href="/user/LogOut" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">LogOut</a>
+        </div>
+      <% } else { %>
+        <div>
+          <a href="#" class="text-white mr-4 hover:text-gray-300 transition">Home</a>
+          <a href="/user/SignUp" class="text-white mr-4 hover:text-gray-300 transition">SignUp</a>
+          <a href="/user/login" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">SignIn</a>
+        </div>
+      <%  } %>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center mt-16 bg-gradient-to-r from-blue-500 to-indigo-600 py-16 text-white">
+    <div class="container mx-auto">
+      <% if (locals.user) { %>
+        <h1 class="text-5xl font-bold"><%= user.firstName %> <%= user.lastName %></h1>
+      <% } else {%>
+        <h1 class="text-5xl font-bold">Welcome to Your Contact Manager</h1>
+      <% }%>
+      <p class="mt-4 text-gray-200">Easily manage your contacts in one place. Add, edit, or delete contacts with a simple user interface.</p>
+      <div class="mt-8">
+        <a href="#add-contact" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="mt-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-gray-800">Features</h2>
+      <div class="flex justify-center mt-8 space-x-8">
+
+        <!-- Feature Cards -->
+        <div class="w-1/3 bg-white shadow-xl rounded-lg p-8 hover:shadow-2xl transition">
+          <h3 class="text-xl font-bold text-blue-500">Add Contacts</h3>
+          <p class="mt-4 text-gray-600">Add new contacts easily with our intuitive form.</p>
+        </div>
+
+        <div class="w-1/3 bg-white shadow-xl rounded-lg p-8 hover:shadow-2xl transition">
+          <h3 class="text-xl font-bold text-blue-500">Manage Contacts</h3>
+          <p class="mt-4 text-gray-600">Edit or delete contacts anytime with a simple interface.</p>
+        </div>
+
+        <div class="w-1/3 bg-white shadow-xl rounded-lg p-8 hover:shadow-2xl transition">
+          <h3 class="text-xl font-bold text-blue-500">Search Contacts</h3>
+          <p class="mt-4 text-gray-600">Easily search and filter contacts by name or other criteria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-blue-500 to-indigo-600 mt-16 p-4 text-white text-center">
+    <p>&copy; 2024 Contact Management System. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
